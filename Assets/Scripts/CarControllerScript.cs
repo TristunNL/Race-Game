@@ -11,6 +11,10 @@ public class CarControllerScript : MonoBehaviour
     public float accelerate = 5f;
     public float drivingSpeed = 0;
     public float Brake = 0.98f;
+    public int checkPointCounter = 0;
+
+    public GameObject[] checkPoints;
+    public GameObject currentCeckPoint;
 
     public void Turn(float direction)
     {
@@ -24,7 +28,7 @@ public class CarControllerScript : MonoBehaviour
             drivingSpeed = drivingSpeed + accelerate * throttle * Time.deltaTime;
             drivingSpeed = Mathf.Clamp(drivingSpeed, -maxSpeed, maxSpeed);
         }
-        else if (throttle == 0)
+        else
         {
             drivingSpeed = Mathf.Lerp(drivingSpeed, 0, Time.deltaTime);
 
