@@ -6,8 +6,8 @@ using UnityEngine;
 public class CarControllerScript : MonoBehaviour
 {
     [Header("basic car variables")]
-    public float maxSpeed = 20;
-    public float turnSpeed = 100;
+    public float maxSpeed = 20; // hier wordt de maximale snelheid die de auto mag rijden aan gegeven 
+    public float turnSpeed = 100; // hier wordt de snelheid gezet voor de raaisnelhied gezet 
     public float accelerate = 5f;
     public float drivingSpeed = 0;
     public float Brake = 0.98f;
