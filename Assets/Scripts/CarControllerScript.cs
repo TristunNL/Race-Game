@@ -37,3 +37,7 @@ public class CarControllerScript : MonoBehaviour
         transform.Translate(velocity * Time.deltaTime, Space.Self);
     }
 }
+
+
+// press s = stoppen 
+
