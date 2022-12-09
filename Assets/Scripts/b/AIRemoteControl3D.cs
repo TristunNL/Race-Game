@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AIRemoteControl3D : MonoBehaviour
 {
-    [SerializeField]
-    private Transform targetPositionTransform;
+    [SerializeField] private Transform targetPositionTransform;
 
     BasicCarController basicCarController;
     
@@ -42,11 +41,11 @@ public class AIRemoteControl3D : MonoBehaviour
 
             float angle = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
 
-            if (angle > 12)
+            if (angle > 5)
             {
                 turn = 1;
             }
-            else if (angle < -12)
+            else if (angle < -5)
             {
                 turn = -1;
             }
