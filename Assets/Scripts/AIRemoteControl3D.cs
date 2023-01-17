@@ -29,7 +29,7 @@ public class AIRemoteControl3D : MonoBehaviour
 
         if (distance > minDistance)
         {
-
+            dot = -dot;
             if (dot > 0)
             {
                 forwards = 1;

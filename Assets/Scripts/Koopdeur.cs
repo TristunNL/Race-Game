@@ -5,16 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Koopdeur : MonoBehaviour
 { 
-    public void Levels()
+    public void koopDeurBuiten()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log("Works");
+  
     }
+
+    public void koopDeurBinnen()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Koopdeur"))
         {
-            Levels();
+            koopDeurBuiten();
+        }
+
+        if (other.CompareTag("koopDeurBinnen"))
+        {
+            koopDeurBinnen();
         }
     }
 }

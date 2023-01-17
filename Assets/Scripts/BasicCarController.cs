@@ -15,23 +15,33 @@ public class BasicCarController : MonoBehaviour
     public GameObject[] checkPoints;
     public GameObject currentCheckPoint;
     public int checkPointCounter = 0;
+    Rigidbody rb;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public void ChangeSpeed(float throttle)
     {
-
-        if (throttle != 0)
+        float forwardSpeed = Vector3.Dot(transform.forward, rb.velocity);
+        if (forwardSpeed < maxSpeed && forwardSpeed > -maxSpeed) 
         {
-            speed = speed + accel * throttle * Time.deltaTime;
-            speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
-        }
-        else
-        {
-             speed = Mathf.Lerp(speed, 0, Time.deltaTime);
+            if (throttle != 0)
+            {
+                speed = speed + accel * throttle * Time.deltaTime;
+                speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
+            }
+            else
+            {
+                 speed = Mathf.Lerp(speed, 0, Time.deltaTime);
+            }
+        
+            Vector3 velocity = Vector3.forward * -speed;
+            //transform.Translate(velocity * Time.deltaTime, Space.Self);
+            rb.AddRelativeForce(velocity, ForceMode.Force);
         }
 
-        Vector3 velocity = Vector3.forward * speed;
-        transform.Translate(velocity * Time.deltaTime, Space.Self);
     }
 
     public void Turn(float direction)
