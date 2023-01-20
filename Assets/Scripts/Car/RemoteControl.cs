@@ -9,11 +9,11 @@ public class RemoteControl : MonoBehaviour
     [Header("Input Variables")]
     public float forwards;
     public float turn;
-    CarControllerScript carControllerScript;
+    BasicCarController carControllerScript;
 
     void Awake()
     {
-        carControllerScript = GetComponent<CarControllerScript>();
+        carControllerScript = GetComponent<BasicCarController>();
     }
 
     void Update()
@@ -25,7 +25,7 @@ public class RemoteControl : MonoBehaviour
             turn = Input.GetAxis("Horizontal");
         }
 
-        carControllerScript.changeSpeed(forwards);
+        carControllerScript.ChangeSpeed(forwards);
         carControllerScript.Turn(turn);
     }
 }

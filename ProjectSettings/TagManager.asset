@@ -7,6 +7,10 @@ TagManager:
   - Terrain
   - Koopdeur
   - koopDeurBinnen
+  - Checkpoints
+  - Ai
+  - koopDeurNBuiten
+  - Powerboost
   layers:
   - Default
   - TransparentFX

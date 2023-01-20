@@ -18,9 +18,9 @@ public class CarControllerScript : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>(); 
-        var pos = new Vector3(0,-1,0);
-        rb.centerOfMass = pos;
+        rb = GetComponent<Rigidbody>();
+        //var pos = new Vector3(0, -1, 0);
+        //rb.centerOfMass = pos;
     }
     public void Turn(float direction)
     {

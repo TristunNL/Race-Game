@@ -10,16 +10,24 @@ public class BasicCarController : MonoBehaviour
     public float accel = 2.5f;
     public float speed = 0;
 
+    [Header("Ai exclusive")]
+    AIRemoteControl3D aiController;
+
     [Header("Level Variables")]
     //we maken een array; een lijst van gameobjects
     public GameObject[] checkPoints;
     public GameObject currentCheckPoint;
     public int checkPointCounter = 0;
     Rigidbody rb;
+    public List<string> usedCheckPoints = new List<string>(); // hier wordt een list gemaakt genaamt usedCheckPoints
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); 
+        if (this.gameObject.CompareTag("Ai")) // hier wordt gekeken er iets het tag ai heeft
+        {
+            aiController = GetComponent<AIRemoteControl3D>();
+        }
     }
 
     public void ChangeSpeed(float throttle)
@@ -37,7 +45,7 @@ public class BasicCarController : MonoBehaviour
                  speed = Mathf.Lerp(speed, 0, Time.deltaTime);
             }
         
-            Vector3 velocity = Vector3.forward * -speed;
+            Vector3 velocity = Vector3.forward * speed;
             //transform.Translate(velocity * Time.deltaTime, Space.Self);
             rb.AddRelativeForce(velocity, ForceMode.Force);
         }
@@ -47,18 +55,34 @@ public class BasicCarController : MonoBehaviour
     public void Turn(float direction)
     {
 
-        transform.Rotate(0, direction * -turnSpeed * Time.deltaTime, 0);
+        transform.Rotate(0, direction * turnSpeed * Time.deltaTime, 0);
     }
 
-    public GameObject NextCheckpoint()
+    private void OnTriggerEnter(Collider other)
     {
-        checkPointCounter++;
-        if (checkPointCounter > checkPoints.Length - 1)
+        
+        // hij check of je een checkpoint hebt geraakt en dan kijkt hij of je hem al eerder hebt geraakt
+
+        if (other.CompareTag("Checkpoints"))
         {
-            checkPointCounter = 0;
+            if (!usedCheckPoints.Contains(other.gameObject.name))
+            {
+                
+                usedCheckPoints.Add(other.gameObject.name);
+                checkPointCounter++;
+                if (checkPointCounter > checkPoints.Length - 1)
+                {
+                    checkPointCounter = 0;
+                }
+                currentCheckPoint = checkPoints[checkPointCounter];
+                if (this.gameObject.CompareTag("Ai"))
+                {
+                    aiController.SetTarget();
+                }
+
+            }
         }
-        currentCheckPoint = checkPoints[checkPointCounter];
-        return currentCheckPoint;
+            
     }
 
 

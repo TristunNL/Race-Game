@@ -27,5 +27,9 @@ public class Koopdeur : MonoBehaviour
         {
             koopDeurBinnen();
         }
+        if (other.CompareTag("koopDeurNBuiten"))
+        {
+            koopDeurBuiten();
+        }
     }
 }

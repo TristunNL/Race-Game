@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class AIRemoteControl3D : MonoBehaviour
 {
-    [SerializeField] private Transform targetPositionTransform;
-
+    [SerializeField] 
+    private Vector3 targetPositionTransform;
     BasicCarController basicCarController;
     
 
-    private void Awake()
+    void Awake()
     {
         basicCarController = GetComponent<BasicCarController>();
+        SetTarget();
     }
 
 
     void FixedUpdate()
     {
-        Vector3 targetPosition = targetPositionTransform.position;
+        Vector3 targetPosition = targetPositionTransform;
         float forwards = 0;
         float turn = 0;
 
@@ -29,7 +30,6 @@ public class AIRemoteControl3D : MonoBehaviour
 
         if (distance > minDistance)
         {
-            dot = -dot;
             if (dot > 0)
             {
                 forwards = 1;
@@ -49,10 +49,15 @@ public class AIRemoteControl3D : MonoBehaviour
             {
                 turn = -1;
             }
-        } else {
-            targetPositionTransform = basicCarController.NextCheckpoint().transform;
         }
+
         basicCarController.ChangeSpeed(forwards);
         basicCarController.Turn(turn);
     }
+    public void SetTarget()
+    {
+        float rndNum = Random.Range(-1, 1);
+        targetPositionTransform = new Vector3(basicCarController.checkPoints[basicCarController.checkPointCounter].transform.position.x + rndNum, basicCarController.checkPoints[basicCarController.checkPointCounter].transform.position.y, basicCarController.checkPoints[basicCarController.checkPointCounter].transform.position.z + rndNum);
+    }
+
 }
