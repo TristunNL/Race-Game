@@ -22,7 +22,7 @@ public class levelMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
+    // hier worden de level knoppen toegewezen 
     public void Level1()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -32,6 +32,11 @@ public class levelMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
+    public void Koop()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
+    //  
     public void Return()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
@@ -46,12 +51,6 @@ public class levelMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
     }
-
-    public void bambooForest()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
-    }
-
     // Update is called once per frame
     void Update()
     {

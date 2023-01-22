@@ -7,9 +7,7 @@ public class Powerpad : MonoBehaviour
 {
     private Canvas CanvasObject; // Assign in inspector
     [SerializeField]
-    Text Menu;
-    [SerializeField]
-    Button button;
+    Text Menu; // hier wordt text aan geroepen 
     void Awake()
     {
 
@@ -18,6 +16,7 @@ public class Powerpad : MonoBehaviour
     void Start()
     {
         CanvasObject = GetComponent<Canvas>();
+        Menu.enabled = false;
     }
 
     // Update is called once per frame
@@ -33,10 +32,12 @@ public class Powerpad : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Time.timeScale = 1;
+            Menu.enabled = false;
         }
+
     }
     private void OnTriggerEnter(Collider other)
     {
-        button.enabled = false;
+        // hier kan je een finish lijn mee maken 
     }
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class BasicCarController : MonoBehaviour
 {
     [Header("Basic Car Variables")]
-    public float maxSpeed = 10;
-    public float turnSpeed = 50;
+    public float maxSpeed = 10f;
+    public float turnSpeed = 50f;
     public float accel = 2.5f;
-    public float speed = 0;
+    public float speed = 0f;
 
     [Header("Ai exclusive")]
     AIRemoteControl3D aiController;
@@ -18,7 +18,7 @@ public class BasicCarController : MonoBehaviour
     public GameObject[] checkPoints;
     public GameObject currentCheckPoint;
     public int checkPointCounter = 0;
-    Rigidbody rb;
+    public Rigidbody rb;
     public List<string> usedCheckPoints = new List<string>(); // hier wordt een list gemaakt genaamt usedCheckPoints
 
     private void Awake()
@@ -29,7 +29,6 @@ public class BasicCarController : MonoBehaviour
             aiController = GetComponent<AIRemoteControl3D>();
         }
     }
-
     public void ChangeSpeed(float throttle)
     {
         float forwardSpeed = Vector3.Dot(transform.forward, rb.velocity);
@@ -46,7 +45,6 @@ public class BasicCarController : MonoBehaviour
             }
         
             Vector3 velocity = Vector3.forward * speed;
-            //transform.Translate(velocity * Time.deltaTime, Space.Self);
             rb.AddRelativeForce(velocity, ForceMode.Force);
         }
 
@@ -84,6 +82,4 @@ public class BasicCarController : MonoBehaviour
         }
             
     }
-
-
 }
