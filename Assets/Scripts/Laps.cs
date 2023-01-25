@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Laps : MonoBehaviour
 {
-    Rigidbody rb;
 
     [Header("Ai exclusive")]
     BasicCarController basiccar;
@@ -20,7 +19,6 @@ public class Laps : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        rb = GetComponent<Rigidbody>();
         if (other.CompareTag("Player"))
         {
             print("Finish");

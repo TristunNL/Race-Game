@@ -26,7 +26,7 @@ public class AIRemoteControl3D : MonoBehaviour
         float dot = Vector3.Dot(transform.forward, directionToTarget);
 
         float distance = Vector3.Distance(transform.position, targetPosition);
-        float minDistance = 0.1f;
+        float minDistance = 1.0f;
 
         if (distance > minDistance)
         {
