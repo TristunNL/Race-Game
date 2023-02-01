@@ -11,6 +11,12 @@ TagManager:
   - Ai
   - koopDeurNBuiten
   - Powerboost
+  - Exit
+  - Exit2
+  - Exit3
+  - Checkpointsvis
+  - Player2
+  - Ai2
   layers:
   - Default
   - TransparentFX

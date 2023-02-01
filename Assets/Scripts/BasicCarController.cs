@@ -28,6 +28,10 @@ public class BasicCarController : MonoBehaviour
         {
             aiController = GetComponent<AIRemoteControl3D>();
         }
+        if (this.gameObject.CompareTag("Ai2")) // hier wordt gekeken er iets het tag ai heeft
+        {
+            aiController = GetComponent<AIRemoteControl3D>();
+        }
     }
     public void ChangeSpeed(float throttle)
     {
@@ -74,6 +78,10 @@ public class BasicCarController : MonoBehaviour
                 }
                 currentCheckPoint = checkPoints[checkPointCounter];
                 if (this.gameObject.CompareTag("Ai"))
+                {
+                    aiController.SetTarget();
+                }
+                if (this.gameObject.CompareTag("Ai2"))
                 {
                     aiController.SetTarget();
                 }

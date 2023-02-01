@@ -46,6 +46,18 @@ public class Menu : MonoBehaviour
     public void Exit()
     {
         // hier wordt de functie aan gemaakt zo dat je naar het level menu kan
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        
+        if (CompareTag("Exit"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        }
+        if (CompareTag("Exit2"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+        }
+        if (CompareTag("Exit3"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 5);
+        }
     }
 }
