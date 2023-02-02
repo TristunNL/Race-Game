@@ -548,7 +548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1237651095}
         m_TargetAssemblyTypeName: levelMenu, Assembly-CSharp
-        m_MethodName: Level2
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -708,6 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4976e4cdf3d88b4783a075ed0ac9a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentScene: 0
 --- !u!114 &1237651096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +948,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1237651095}
         m_TargetAssemblyTypeName: levelMenu, Assembly-CSharp
-        m_MethodName: Koop
+        m_MethodName: Levels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1199,7 +1200,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1237651095}
         m_TargetAssemblyTypeName: levelMenu, Assembly-CSharp
-        m_MethodName: Level1
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

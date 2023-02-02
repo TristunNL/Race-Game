@@ -27,24 +27,15 @@ public class Win : MonoBehaviour
             print("You finished first");
             if (CompareTag("Player"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
-            }
-            if (CompareTag("Player2"))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+                SceneManager.LoadScene(6);
             }
 
         }
-
         if (aiLapcounter == 1)
         {
             if (CompareTag("Ai"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
-            }
-            if (CompareTag("Ai2"))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+                SceneManager.LoadScene(7);
             }
         }
     }
@@ -57,17 +48,8 @@ public class Win : MonoBehaviour
             {
                 playerCheckpointCounter();
             }
-            if (other.CompareTag("Checkpointsvis") && this.CompareTag("Player2"))
-            {
-                playerCheckpointCounter();
-            }
-
             // hier wordt een functie aangeroepen
             if (other.CompareTag("Checkpointsvis") && this.CompareTag("Ai"))
-            {
-                AiCheckpointCounter();
-            }
-            if (other.CompareTag("Checkpointsvis") && this.CompareTag("Ai2"))
             {
                 AiCheckpointCounter();
             }

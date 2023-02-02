@@ -576,7 +576,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1539051650}
         m_TargetAssemblyTypeName: levelMenu, Assembly-CSharp
-        m_MethodName: Return2
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -656,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4976e4cdf3d88b4783a075ed0ac9a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentScene: 0
 --- !u!114 &1539051651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class levelMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-
+   public int CurrentScene;
+    public void Start()
+    {
+        CurrentScene = SceneManager.GetActiveScene().buildIndex; //Pakt het nummertje van de buildindex van de scene waar je op dat moment bent ingeladen.
+    }   
     public void quitGame()
     {
         Application.Quit();
@@ -15,45 +18,50 @@ public class levelMenu : MonoBehaviour
     }
     public void Levels()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene("Levels", LoadSceneMode.Single); // LoadSceneMode.Single zorgt ervoor dat alleen 1 scene inlaad en dat alle andere scenes sluit.
     }
 
     public void Options()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Options", LoadSceneMode.Single);
     }
     // hier worden de level knoppen toegewezen 
     public void Level1()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
     }
     public void Level2()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene("Level2", LoadSceneMode.Single);
     }
 
     public void Koop()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+        SceneManager.LoadScene("Koop", LoadSceneMode.Single);
     }
-    //  
-    public void Return()
+     
+  
+    public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
-
-    public void Return2()
+    public void AiWin()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("WinscreenAi", LoadSceneMode.Single);
     }
-
-    public void Return3()
+    public void PlayerWin()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        SceneManager.LoadScene("Winscreenplayer", LoadSceneMode.Single);
     }
-    // Update is called once per frame
-    void Update()
+    public void Restart()
     {
-        
+        if (CurrentScene == 3) // Als CurrentScene zijn buildindex gelijk is aan nummertje 3 (Level1)
+        {
+            SceneManager.LoadScene("Level1", LoadSceneMode.Single); 
+        }
+        else
+        {
+            SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+        }
     }
 }

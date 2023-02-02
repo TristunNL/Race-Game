@@ -5,26 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Koopdeur : MonoBehaviour
 { 
-    public void koopDeurBuiten()
+    public void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-  
-    }
-
-    public void koopDeurBinnen()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Koopdeur"))
+        if (other.CompareTag("Koopdeur") && this.CompareTag("Player"))
         {
-            koopDeurBuiten();
+            SceneManager.LoadScene(5);
+            
         }
         if (other.CompareTag("koopDeurBinnen"))
         {
-            koopDeurBinnen();
+            SceneManager.LoadScene(3);
         }
     }
 }
