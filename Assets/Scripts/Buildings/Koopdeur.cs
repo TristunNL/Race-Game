@@ -7,13 +7,13 @@ public class Koopdeur : MonoBehaviour
 { 
     public void koopDeurBuiten()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(5);
   
     }
 
     public void koopDeurBinnen()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene(4);
     }
 
     private void OnTriggerEnter(Collider other)

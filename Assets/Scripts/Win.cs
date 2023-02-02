@@ -27,11 +27,11 @@ public class Win : MonoBehaviour
             print("You finished first");
             if (CompareTag("Player"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+                SceneManager.LoadScene(6);
             }
             if (CompareTag("Player2"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+                SceneManager.LoadScene(6);
             }
 
         }
@@ -40,11 +40,11 @@ public class Win : MonoBehaviour
         {
             if (CompareTag("Ai"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
+                SceneManager.LoadScene(7);
             }
             if (CompareTag("Ai2"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+                SceneManager.LoadScene(7);
             }
         }
     }
